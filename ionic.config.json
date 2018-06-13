@@ -1,0 +1,8 @@
+{
+  "name": "lifelink",
+  "app_id": "8f90ab34",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
