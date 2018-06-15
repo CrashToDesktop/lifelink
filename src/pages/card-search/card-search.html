@@ -4,19 +4,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-searchbar [(ngModel)]="searchTerms" placeholder="Type to search" (search)="basicSearch()" (ionClear)="clearSearch()"></ion-searchbar>
-  <div *ngIf="searchResults === undefined; else resultList">
+  <div *ngIf="status === 0">
     <p> Oops! Nothing found yet, but remember that an empty canvas holds infinite possibilities. </p>
   </div>
-  <ng-template #resultList>
-    <ion-list>
-      <ion-item *ngFor="let card of searchResults">
-        <h4>{{card.name}}</h4>
-        <p>{{card.type_line}}</p>
-        <p>{{card.set_name}}</p>
-      </ion-item>
-    </ion-list>
-  </ng-template>
+  <div *ngIf="status === 1">
+    <p>No cards found matching search criteria.</p>
+  </div>
+  <ion-list *ngIf="status === 2">
+    <ion-item *ngFor="let card of searchResults">
+      <img src="{{ card.image_uris.small }}" alt="{{ card.name }}">
+      <h2>{{card.name}}</h2>
+      <p>{{card.type_line}}</p>
+      <p>{{card.set_name}}</p>
+    </ion-item>
+  </ion-list>
   
 </ion-content>
