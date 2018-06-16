@@ -13,12 +13,12 @@
     <p>No cards found matching search criteria.</p>
   </div>
   <ion-list *ngIf="status === 2">
-    <ion-item *ngFor="let card of searchResults">
-      <img src="{{ card.image_uris.small }}" alt="{{ card.name }}">
-      <h2>{{card.name}}</h2>
-      <p>{{card.type_line}}</p>
+    <button ion-item *ngFor="let card of searchResults" (click)="viewCard(card)">
+      <img src="{{ getCardImage(card, 'small') }}" alt="{{ card.name }}">
+      <h2>{{ card.name }}</h2>
+      <p>{{ card.type_line }}</p>
       <p>{{card.set_name}}</p>
-    </ion-item>
+    </button>
   </ion-list>
   
 </ion-content>

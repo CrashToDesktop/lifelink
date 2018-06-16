@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
+import { CardDetailPage } from './card-detail/card-detail';
 
 /**
  * Generated class for the CardSearchPage page.
@@ -47,6 +48,18 @@ export class CardSearchPage {
   clearSearch() {
     this.status = 0;
     this.searchResults = undefined;
+  }
+
+  viewCard(targetCard) {
+    this.navCtrl.push(CardDetailPage, { card: targetCard })
+  }
+
+  getCardImage(card: any, size: string) {
+    if (card['layout'] === 'transform') {
+      return card['card_faces'][0]['image_uris'][size];
+    }
+  
+    return card['image_uris'][size];
   }
 
 }

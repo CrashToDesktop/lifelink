@@ -9,12 +9,14 @@ import { HTTP } from '@ionic-native/http';
 import { App } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CardSearchPage } from '../pages/card-search/card-search';
+import { CardDetailPage } from '../pages/card-search/card-detail/card-detail';
 
 @NgModule({
   declarations: [
     App,
     HomePage,
-    CardSearchPage
+    CardSearchPage,
+    CardDetailPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { CardSearchPage } from '../pages/card-search/card-search';
   entryComponents: [
     App,
     HomePage,
-    CardSearchPage
+    CardSearchPage,
+    CardDetailPage
   ],
   providers: [
     StatusBar,
