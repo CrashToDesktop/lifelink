@@ -10,6 +10,7 @@ import { App } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CardSearchPage } from '../pages/card-search/card-search';
 import { CardDetailPage } from '../pages/card-search/card-detail/card-detail';
+import { CardProvider } from '../providers/card/card.provider';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CardDetailPage } from '../pages/card-search/card-detail/card-detail';
     StatusBar,
     SplashScreen,
     HTTP,
+    CardProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
