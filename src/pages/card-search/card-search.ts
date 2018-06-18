@@ -4,16 +4,9 @@ import { CardDetailPage } from './card-detail/card-detail';
 import { CardProvider } from '../../providers/card/card.provider';
 import { Observable } from 'rxjs/Observable';
 
-/**
- * Generated class for the CardSearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-card-search',
-  templateUrl: 'card-search.html',
+  templateUrl: 'card-search.html'
 })
 export class CardSearchPage {
   searchTerms: string;

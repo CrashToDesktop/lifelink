@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CardDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CardInfoPage } from './card-info/card-info';
+import { CardArtPage } from './card-art/card-art';
 
 @Component({
   selector: 'page-card-detail',
-  templateUrl: 'card-detail.html',
+  templateUrl: 'card-detail.html'
 })
 export class CardDetailPage {
-
+  tabs = [
+    { title: 'Info', component: CardInfoPage, icon: 'chat'},
+    { title: 'Art', component: CardArtPage, icon: 'chat'}
+  ];
   card: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

@@ -14,7 +14,7 @@
   </div>
   <ion-list *ngIf="status === 2">
     <button ion-item *ngFor="let card of searchResults" (click)="viewCard(card)">
-      <img src="{{ getCardImage(card, 'small') }}" alt="{{ card.name }}">
+      <img [src]="getCardImage(card, 'small')" [alt]="card.name">
       <h2>{{ card.name }}</h2>
       <p>{{ card.type_line }}</p>
       <p>{{card.set_name}}</p>

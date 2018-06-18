@@ -1,0 +1,24 @@
+<!--
+  Generated template for the CardInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h2>{{ card.name }}</h2>
+  <p>{{ card.type_line }}</p>
+  <p> {{ getCardManaCost() }}</p>
+  <p><b>Oracle Text: </b><span [innerHTML]="getCardOracleText()"></span></p>
+  <p><b>Flavor Text:</b> {{ card.flavor_text }}</p>
+  <p><b>Set: </b> {{ card.set_name }}</p>
+  <p><b>Artist: </b> {{ card.artist }} </p>
+  <p><b>Pricing: </b> USD {{ card.usd }}</p>
+  <p><b>Liga Magic: </b><a (click)="goToLMPage()">Check page</a></p>
+</ion-content>

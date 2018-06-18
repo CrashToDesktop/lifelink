@@ -10,6 +10,8 @@ import { App } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CardSearchPage } from '../pages/card-search/card-search';
 import { CardDetailPage } from '../pages/card-search/card-detail/card-detail';
+import { CardInfoPage } from '../pages/card-search/card-detail/card-info/card-info';
+import { CardArtPage } from '../pages/card-search/card-detail/card-art/card-art';
 import { CardProvider } from '../providers/card/card.provider';
 
 @NgModule({
@@ -17,7 +19,9 @@ import { CardProvider } from '../providers/card/card.provider';
     App,
     HomePage,
     CardSearchPage,
-    CardDetailPage
+    CardDetailPage,
+    CardInfoPage,
+    CardArtPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { CardProvider } from '../providers/card/card.provider';
     App,
     HomePage,
     CardSearchPage,
-    CardDetailPage
+    CardDetailPage,
+    CardInfoPage,
+    CardArtPage
   ],
   providers: [
     StatusBar,
