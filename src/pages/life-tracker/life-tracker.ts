@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
+
+/* Fontawesome imports */
+import fontawesome from '@fortawesome/fontawesome'
+import faSkull from '@fortawesome/fontawesome-free-solid/faSkull'
 
 @Component({
   selector: 'page-life-tracker',
@@ -15,11 +19,32 @@ export class LifeTrackerPage {
 
   active: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
+    fontawesome.library.add(faSkull);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LifeTrackerPage');
+  }
+
+  playerTap(ev, player) {
+    if (ev.srcEvent.x < this.platform.width()/2) {
+      this.changeLife(player, -1);
+    } else {
+      this.changeLife(player, 1);
+    }
+  }
+
+  isPlayerAlive(player): boolean {
+    if (player.lp <= 0) {
+      return false;
+    }
+
+    return true;
+  }
+
+  changeLife(player, amount) {
+    player.lp += amount;
   }
 
 }

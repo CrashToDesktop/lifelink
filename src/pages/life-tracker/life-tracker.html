@@ -5,16 +5,26 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <img [src]="players[active].art">
+  <ion-card (tap)="playerTap($event, players[active])">
+    <img [src]="players[active].art" [ngClass]="{'eliminated': !isPlayerAlive(players[active])}">
+    <div class="minus">-</div>
+    <div class="plus">+</div>
     <div class="active-card-title">{{players[active].lp}}</div>
     <div class="active-card-subtitle">{{players[active].name}}</div>
   </ion-card>
+  <ion-list>
+      <ion-item>
+          <ion-label><i class="fa fa-skull"></i></ion-label>
+          <ion-toggle [checked]="!isPlayerAlive(players[active])"></ion-toggle>
+        </ion-item>
+  </ion-list>
   <ion-scroll scrollX="true">
-    <ion-card *ngFor="let player of players; index as i" (click)="active = i">
-      <img [src]="player.art">
-      <div class="card-title">{{player.lp}}</div>
-      <div class="card-subtitle">{{player.name}}</div>
-    </ion-card>
+    <ng-container *ngFor="let player of players; index as i">
+      <ion-card *ngIf="active !== i" (click)="active = i">
+        <img [src]="player.art" [ngClass]="{'eliminated': !isPlayerAlive(player)}">
+        <div class="card-title">{{player.lp}}</div>
+        <div class="card-subtitle">{{player.name}}</div>
+      </ion-card>
+    </ng-container>
   </ion-scroll>
 </ion-content>

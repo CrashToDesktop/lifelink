@@ -21,6 +21,21 @@ page-life-tracker {
         color: #fff;
     }
 
+    .plus {
+        right: 20%;
+    }
+
+    .minus {
+        left: 20%;
+    }
+
+    .plus, .minus {
+        position: absolute;
+        top: 40%;
+        font-size: 2.5em;
+        color: #fff;
+    }
+
     ion-scroll[scrollX] {
         white-space: nowrap;
         height: 100%;
@@ -46,5 +61,10 @@ page-life-tracker {
             width: 100%;
             color: #fff;
         }
+    }
+
+    .eliminated {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
     }
 }

@@ -14,6 +14,7 @@ import { CardInfoPage } from '../pages/card-search/card-detail/card-info/card-in
 import { CardArtPage } from '../pages/card-search/card-detail/card-art/card-art';
 import { CardProvider } from '../providers/card/card.provider';
 import { LifeTrackerPage } from '../pages/life-tracker/life-tracker';
+import { BrowserTab } from '../../node_modules/@ionic-native/browser-tab';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LifeTrackerPage } from '../pages/life-tracker/life-tracker';
     StatusBar,
     SplashScreen,
     HTTP,
+    BrowserTab,
     CardProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
