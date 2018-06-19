@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CardSearchPage } from '../pages/card-search/card-search';
 
 import { HomePage } from '../pages/home/home';
+import { LifeTrackerPage } from '../pages/life-tracker/life-tracker';
 @Component({
   templateUrl: 'app.html'
 })
@@ -14,7 +15,7 @@ export class App {
 
   pages = [
     {title: 'Card search', component: CardSearchPage},
-    {title: 'Life tracking', component: undefined}
+    {title: 'Life tracking', component: LifeTrackerPage}
   ]
  
   constructor(public menuCtrl: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

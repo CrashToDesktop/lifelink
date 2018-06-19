@@ -1,0 +1,50 @@
+page-life-tracker {
+    ion-card {
+        position: relative;
+        text-align: center;
+    }
+
+    .active-card-title {
+        position: absolute;
+        top: 30%;
+        font-size: 4.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .active-card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 60%;
+        width: 100%;
+        color: #fff;
+    }
+
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        height: 100%;
+
+        ion-card {
+            position: relative;
+            display: inline-block;
+            width: 40%;
+        }
+
+        .card-title {
+            position: absolute;
+            top: 15%;
+            font-size: 2.5em;
+            width: 100%;
+            color: #fff;
+        }
+    
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 60%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+}

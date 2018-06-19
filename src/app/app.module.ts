@@ -13,6 +13,7 @@ import { CardDetailPage } from '../pages/card-search/card-detail/card-detail';
 import { CardInfoPage } from '../pages/card-search/card-detail/card-info/card-info';
 import { CardArtPage } from '../pages/card-search/card-detail/card-art/card-art';
 import { CardProvider } from '../providers/card/card.provider';
+import { LifeTrackerPage } from '../pages/life-tracker/life-tracker';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CardProvider } from '../providers/card/card.provider';
     CardSearchPage,
     CardDetailPage,
     CardInfoPage,
-    CardArtPage
+    CardArtPage,
+    LifeTrackerPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { CardProvider } from '../providers/card/card.provider';
     CardSearchPage,
     CardDetailPage,
     CardInfoPage,
-    CardArtPage
+    CardArtPage,
+    LifeTrackerPage
   ],
   providers: [
     StatusBar,
