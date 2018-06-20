@@ -28,7 +28,7 @@ export class LifeTrackerPage {
   }
 
   playerTap(ev, player) {
-    if (ev.srcEvent.x < this.platform.width()/2) {
+    if (ev.srcEvent.pageX < this.platform.width()/2) {
       this.changeLife(player, -1);
     } else {
       this.changeLife(player, 1);
