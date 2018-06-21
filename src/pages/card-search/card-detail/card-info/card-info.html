@@ -12,13 +12,15 @@
 
 
 <ion-content padding>
-  <h2>{{card.name}}</h2>
-  <p> {{getCardManaCost()}} </p>
+  <h2>{{ card.name}}</h2>
+  <p [innerHtml]="getCardManaCost()"></p>
   <p>{{card.type_line}}</p>
-  <p><b>Oracle Text: </b><span [innerHTML]="getCardOracleText()"></span></p>
-  <p *ngIf="card.flavor_text !== ''"><b>Flavor Text:</b> {{card.flavor_text}}</p>
-  <p><b>Set: </b> {{card.set_name}}</p>
-  <p><b>Artist: </b> {{card.artist}} </p>
-  <p><b>Pricing: </b> USD {{card.usd}}</p>
-  <p><b>Liga Magic: </b><a (click)="goToLMPage()">Check page</a></p>
+  <p><strong>Oracle Text: </strong></p>
+  <p [innerHTML]="getCardOracleText()"></p>
+  <p *ngIf="card.flavor_text !== ''"><strong>Flavor Text:</strong></p>
+  <p>{{card.flavor_text}}</p>
+  <p><strong>Set: </strong> {{card.set_name}}</p>
+  <p><strong>Artist: </strong> {{card.artist}} </p>
+  <p><strong>Pricing: </strong> USD {{card.usd}}</p>
+  <p><strong>Liga Magic: </strong><a [href]="getLigaMagicPage()">Check page</a></p>
 </ion-content>

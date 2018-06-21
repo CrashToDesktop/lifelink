@@ -23,17 +23,52 @@ export class CardProvider {
     return card['image_uris'][size];
   }
 
-  getCardOracleText(card: any) {
-    return card['oracle_text'].replace('\n', '<br/><br/>');
+  getCardManaCost(card: any) {
+    return this.getCardSymbols(card['mana_cost']);
   }
 
-  getCardManaCost(card: any) {
-    return card['mana_cost']
-      .replace('{W}', '<abbr class="card-symbol card-symbol-W" title="one white mana">{W}</abbr>')
-      .replace('{U}', '<abbr class="card-symbol card-symbol-U" title="one blue mana">{U}</abbr>')
-      .replace('{B}', '<abbr class="card-symbol card-symbol-B" title="one black mana">{B}</abbr>')
-      .replace('{R}', '<abbr class="card-symbol card-symbol-R" title="one red mana">{R}</abbr>')
-      .replace('{G}', '<abbr class="card-symbol card-symbol-G" title="one green mana">{G}</abbr>');
+  getCardOracleText(card: any) {
+    return this.getCardSymbols(card['oracle_text']);
+  }
+
+  // getCardManaCost(card: any) {
+  //   let convertedCost: string = card['mana_cost'].replace(
+  //     new RegExp('\{(1/2{1})\}', 'g'),
+  //     '<i class="ms ms-1-2 ms-cost"></i> '
+  //   ).replace(
+  //     new RegExp('\{(\u221E{1})\}', 'g'),
+  //     '<i class="ms ms-infinity ms-cost"></i> '
+  //   ).replace(
+  //     new RegExp('\{([WUBRG]{1})/P\}', 'g'),
+  //     '<i class="ms ms-$1p ms-cost"></i> '
+  //   ).replace(
+  //     new RegExp('\{([WUBRG]{1}|[1-2]{1})/([WUBRG])\}', 'g'),
+  //     '<i class="ms ms-$1$2 ms-split ms-cost"></i> '
+  //   ).replace(
+  //     new RegExp('\{([WUBRGXYZCS]{1}|[0-9]{1}|[1-2][0-9]{1}|100{1}|1000000{1})\}', 'g'),
+  //     '<i class="ms ms-$1 ms-cost"></i> '
+  //   ).toLocaleLowerCase();
+  //   return convertedCost;
+  // }
+
+  getCardSymbols(str: string) {
+    return str.replace(
+      /\{([WUBRGXYZCSHTQPWAOSE]+|[0-9]+)\/?([WUBRGP]+)?\}/g,
+      '<i class="card-symbol card-symbol-$1$2">{$1$2}</i>'
+    ).replace(
+      /\{(\u221e)\}/g,
+      '<i class="card-symbol card-symbol-INFINITY">{$1}</i>'
+    ).replace(
+      /\{(\u00bd)\}/g,
+      '<i class="card-symbol card-symbol-HALF">{$1}</i>'
+    ).replace(
+      /\n/,
+      '<br>'
+    );
+  }
+
+  getAllSymbols(): Promise<any> {
+    return this.http.get('https://api.scryfall.com/symbology', {}, {});
   }
 
 }
