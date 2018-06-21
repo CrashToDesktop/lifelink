@@ -28,13 +28,13 @@ export class CardSearchPage {
         this.searchResults = scryfallObj.data;
     })
     .catch(err => {
-      let error = JSON.parse(err.error);
+      // let error = JSON.parse(err.error);
       
-      if (error.status === 404) {
-        this.status = 1;
-      }
+      // if (error.status === 404) {
+      //   this.status = 1;
+      // }
 
-      console.error(err.error);
+      console.error(err);
     });
   }
 

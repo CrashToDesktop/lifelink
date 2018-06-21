@@ -35,6 +35,10 @@ export class CardInfoPage {
     })
   }
 
+  getLigaMagicPage() {
+    return `https://www.ligamagic.com/?view=cards%2Fsearch&card=${this.card.name}`;
+  }
+
   getCardOracleText() {
     return this.cardProvider.getCardOracleText(this.card);
   }
