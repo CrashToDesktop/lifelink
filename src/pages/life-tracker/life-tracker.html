@@ -5,26 +5,42 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card (tap)="playerTap($event, players[active])">
-    <img [src]="players[active].art" [ngClass]="{'eliminated': !isPlayerAlive(players[active])}">
-    <div class="minus">-</div>
-    <div class="plus">+</div>
-    <div class="active-card-title">{{players[active].lp}}</div>
-    <div class="active-card-subtitle">{{players[active].name}}</div>
-  </ion-card>
   <ion-list>
-      <ion-item>
-          <ion-label><i class="fa fa-skull"></i></ion-label>
-          <ion-toggle [checked]="!isPlayerAlive(players[active])"></ion-toggle>
-        </ion-item>
+    <ion-item>
+      <ion-segment [(ngModel)]="resource" color="dark">
+        <ion-segment-button value="life"><i class="fa fa-heartbeat"></i></ion-segment-button>
+        <ion-segment-button value="poison"><i class="fa fa-tint"></i></ion-segment-button>
+        <ion-segment-button value="library"><i class="fa fa-book"></i></ion-segment-button>
+      </ion-segment>
+    </ion-item>
+    <ion-item>
+      <ion-card (tap)="playerTap($event, players[active])" (pan)="playerPan($event, players[active])" (press)="playerPress($event)">
+        <img [src]="players[active].art" [ngClass]="{'eliminated': !isPlayerAlive(players[active])}">
+        <div class="minus">-</div>
+        <div class="plus">+</div>
+        <div class="active-card-title">{{ getCurrentResource(players[active]) }}</div>
+        <div class="active-card-subtitle">{{players[active].name}}</div>
+      </ion-card>
+    </ion-item>
+    <ion-item>
+      <ion-label><i class="fa fa-skull"></i></ion-label>
+      <ion-toggle [checked]="!isPlayerAlive(players[active])" (tap)="players[active].alive = !players[active].alive"></ion-toggle>
+    </ion-item>
   </ion-list>
   <ion-scroll scrollX="true">
     <ng-container *ngFor="let player of players; index as i">
       <ion-card *ngIf="active !== i" (click)="active = i">
         <img [src]="player.art" [ngClass]="{'eliminated': !isPlayerAlive(player)}">
-        <div class="card-title">{{player.lp}}</div>
+        <div class="card-title">{{ getCurrentResource(player) }}</div>
         <div class="card-subtitle">{{player.name}}</div>
       </ion-card>
     </ng-container>
   </ion-scroll>
+  <ion-fab left bottom>
+    <button ion-fab color="dark" mini><ion-icon name="arrow-dropright"></ion-icon></button>
+    <ion-fab-list side="right">
+      <button ion-fab (tap)="restart()"><i class="fa fa-redo"></i></button>
+      <button ion-fab><i class="fa fa-cog"></i></button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
