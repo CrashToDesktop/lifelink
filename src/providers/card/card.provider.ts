@@ -31,26 +31,6 @@ export class CardProvider {
     return this.getCardSymbols(card['oracle_text']);
   }
 
-  // getCardManaCost(card: any) {
-  //   let convertedCost: string = card['mana_cost'].replace(
-  //     new RegExp('\{(1/2{1})\}', 'g'),
-  //     '<i class="ms ms-1-2 ms-cost"></i> '
-  //   ).replace(
-  //     new RegExp('\{(\u221E{1})\}', 'g'),
-  //     '<i class="ms ms-infinity ms-cost"></i> '
-  //   ).replace(
-  //     new RegExp('\{([WUBRG]{1})/P\}', 'g'),
-  //     '<i class="ms ms-$1p ms-cost"></i> '
-  //   ).replace(
-  //     new RegExp('\{([WUBRG]{1}|[1-2]{1})/([WUBRG])\}', 'g'),
-  //     '<i class="ms ms-$1$2 ms-split ms-cost"></i> '
-  //   ).replace(
-  //     new RegExp('\{([WUBRGXYZCS]{1}|[0-9]{1}|[1-2][0-9]{1}|100{1}|1000000{1})\}', 'g'),
-  //     '<i class="ms ms-$1 ms-cost"></i> '
-  //   ).toLocaleLowerCase();
-  //   return convertedCost;
-  // }
-
   getCardSymbols(str: string) {
     return str.replace(
       /\{([WUBRGXYZCSHTQPWAOSE]+|[0-9]+)\/?([WUBRGP]+)?\}/g,
@@ -62,7 +42,7 @@ export class CardProvider {
       /\{(\u00bd)\}/g,
       '<i class="card-symbol card-symbol-HALF">{$1}</i>'
     ).replace(
-      /\n/,
+      /\n/g,
       '<br>'
     );
   }

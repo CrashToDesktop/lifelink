@@ -7,14 +7,20 @@ import { CardProvider } from '../../providers/card/card.provider';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  cardSymbols = [
-    '{W}','{U}','{B}','{R}','{G}'
-  ]
+  cardSymbols: any[];
 
   constructor(public navCtrl: NavController, private cardProvider: CardProvider) {
+    this.cardProvider.getAllSymbols()
+    .then(res => {
+      let scryfallObj = JSON.parse(res.data);
+      this.cardSymbols = scryfallObj['data'];
+    })
+    .catch(err => {
+      console.error(err);
+    });
   }
 
-  getHtml(symbol: string): string {
-    return this.cardProvider.getCardOracleText({oracle_text: symbol});
+  getHtml(symbol): string {
+    return this.cardProvider.getCardOracleText({oracle_text: symbol.symbol});
   }
 }
