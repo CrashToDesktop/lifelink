@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { CardProvider } from '../../providers/card/card.provider';
+import { Component      } from '@angular/core';
+import { NavController  } from 'ionic-angular';
+import { CardProvider   } from '../../providers/card/card.provider';
 
 @Component({
   selector: 'page-home',

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component                } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CardProvider } from '../../../../providers/card/card.provider';
+import { CardProvider             } from '../../../../providers/card/card.provider';
 
 @Component({
   selector: 'page-card-art',

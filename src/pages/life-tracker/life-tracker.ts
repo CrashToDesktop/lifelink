@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component                          } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 
 /* Fontawesome imports */
-import fontawesome from '@fortawesome/fontawesome'
-import faSkull from '@fortawesome/fontawesome-free-solid/faSkull'
-import faRedo from '@fortawesome/fontawesome-free-solid/faRedo'
-import faCog from '@fortawesome/fontawesome-free-solid/faCog'
-import faHeartbeat from '@fortawesome/fontawesome-free-solid/faHeartbeat'
-import faTint from '@fortawesome/fontawesome-free-solid/faTint'
-import faBook from '@fortawesome/fontawesome-free-solid/faBook'
+import fontawesome                            from '@fortawesome/fontawesome'
+import faSkull                                from '@fortawesome/fontawesome-free-solid/faSkull'
+import faRedo                                 from '@fortawesome/fontawesome-free-solid/faRedo'
+import faCog                                  from '@fortawesome/fontawesome-free-solid/faCog'
+import faHeartbeat                            from '@fortawesome/fontawesome-free-solid/faHeartbeat'
+import faTint                                 from '@fortawesome/fontawesome-free-solid/faTint'
+import faBook                                 from '@fortawesome/fontawesome-free-solid/faBook'
 
 @Component({
   selector: 'page-life-tracker',

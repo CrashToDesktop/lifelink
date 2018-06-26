@@ -19,7 +19,7 @@
         <div class="minus">-</div>
         <div class="plus">+</div>
         <div class="active-card-title">{{ getCurrentResource(players[active]) }}</div>
-        <div class="active-card-subtitle">{{players[active].name}}</div>
+        <div class="active-card-subtitle">{{ players[active].name }}</div>
       </ion-card>
     </ion-item>
     <ion-item>
@@ -32,7 +32,7 @@
       <ion-card *ngIf="active !== i" (click)="active = i">
         <img [src]="player.art" [ngClass]="{'eliminated': !isPlayerAlive(player)}">
         <div class="card-title">{{ getCurrentResource(player) }}</div>
-        <div class="card-subtitle">{{player.name}}</div>
+        <div class="card-subtitle">{{ player.name }}</div>
       </ion-card>
     </ng-container>
   </ion-scroll>

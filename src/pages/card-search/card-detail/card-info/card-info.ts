@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component                } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { BrowserTab } from '@ionic-native/browser-tab';
-import { CardProvider } from '../../../../providers/card/card.provider';
+import { BrowserTab               } from '@ionic-native/browser-tab';
+import { CardProvider             } from '../../../../providers/card/card.provider';
 
 @Component({
   selector: 'page-card-info',

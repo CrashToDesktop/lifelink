@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component                } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CardDetailPage } from './card-detail/card-detail';
-import { CardProvider } from '../../providers/card/card.provider';
-import { Observable } from 'rxjs/Observable';
+import { CardDetailPage           } from './card-detail/card-detail';
+import { CardProvider             } from '../../providers/card/card.provider';
+import { Observable               } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-card-search',

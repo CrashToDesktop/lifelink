@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component                } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CardInfoPage } from './card-info/card-info';
-import { CardArtPage } from './card-art/card-art';
+import { CardInfoPage             } from './card-info/card-info';
+import { CardArtPage              } from './card-art/card-art';
 
 @Component({
   selector: 'page-card-detail',
