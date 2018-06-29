@@ -15,6 +15,7 @@ import { CardArtPage } from '../pages/card-search/card-detail/card-art/card-art'
 import { CardProvider } from '../providers/card/card.provider';
 import { LifeTrackerPage } from '../pages/life-tracker/life-tracker';
 import { BrowserTab } from '../../node_modules/@ionic-native/browser-tab';
+import { GameProvider } from '../providers/game/game';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { BrowserTab } from '../../node_modules/@ionic-native/browser-tab';
     HTTP,
     BrowserTab,
     CardProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GameProvider
   ]
 })
 export class AppModule {}

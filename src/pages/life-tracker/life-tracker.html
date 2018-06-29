@@ -14,8 +14,8 @@
       </ion-segment>
     </ion-item>
     <ion-item>
-      <ion-card (tap)="playerTap($event, players[active])" (pan)="playerPan($event, players[active])" (press)="playerPress($event)">
-        <img [src]="players[active].art" [ngClass]="{'eliminated': !isPlayerAlive(players[active])}">
+      <ion-card (tap)="playerTap($event, players[active])" (pan)="playerPan($event, players[active])">
+        <img [src]="getArtValue(players[active])" [ngClass]="{'eliminated': !isPlayerAlive(players[active])}" [ngStyle]="{'background-color': getArtValue(players[active]) }">
         <div class="minus">-</div>
         <div class="plus">+</div>
         <div class="active-card-title">{{ getCurrentResource(players[active]) }}</div>
@@ -26,11 +26,15 @@
       <ion-label><i class="fa fa-skull"></i></ion-label>
       <ion-toggle [checked]="!isPlayerAlive(players[active])" (tap)="players[active].alive = !players[active].alive"></ion-toggle>
     </ion-item>
+    <ion-item>
+      <ion-label><i class="fa fa-users"></i> Global effects</ion-label>
+      <ion-toggle [(ngModel)]="global"></ion-toggle>
+    </ion-item>
   </ion-list>
   <ion-scroll scrollX="true">
     <ng-container *ngFor="let player of players; index as i">
       <ion-card *ngIf="active !== i" (click)="active = i">
-        <img [src]="player.art" [ngClass]="{'eliminated': !isPlayerAlive(player)}">
+        <img [src]="getArtValue(player)" [ngClass]="{'eliminated': !isPlayerAlive(player)}" [ngStyle]="{ 'background-color': getArtValue(player) }">
         <div class="card-title">{{ getCurrentResource(player) }}</div>
         <div class="card-subtitle">{{ player.name }}</div>
       </ion-card>
